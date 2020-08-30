@@ -73,3 +73,10 @@ CSS HEX
     flex-flow: wrap;
      
 }
+
+#deleteBtn {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    font-size: 1rem;
+}
