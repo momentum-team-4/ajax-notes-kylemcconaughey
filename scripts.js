@@ -17,14 +17,23 @@ function displayNotes(data) {
         let noteEl = document.createElement('div');
         let titleEl = document.createElement('h2');
         let bodyEl = document.createElement('p');
-        let deleteBtn = document.createElement('button');
-        deleteBtn.id = 'deleteBtn';
-        deleteBtn.innerText = 'Delete';
         titleEl.innerHTML = data[i].title;
         bodyEl.innerHTML = data[i].body;
         noteEl.appendChild(titleEl);
         noteEl.appendChild(bodyEl);
+
+        let deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('deleteBtn');
+        deleteBtn.id = 'deleteBtn' + data[i].id;
+        deleteBtn.innerText = 'Delete';
         noteEl.appendChild(deleteBtn);
+
+        deleteBtn.addEventListener('click', function () {
+            fetch('http://localhost:3000/notes/' + data[i].id, {
+                method: 'DELETE'
+            })
+        })
+
         noteEl.classList.add('note');
         notesAnchor.appendChild(noteEl);
     }
@@ -43,12 +52,18 @@ saveBtn.addEventListener('click', function () {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody })
     })
+
+    let noteEl = document.createElement('div');
+    let titleEl = document.createElement('h2');
+    let bodyEl = document.createElement('p');
+    titleEl.innerHTML = document.querySelector('#newNoteTitle').value;
+    bodyEl.innerHTML = document.querySelector('#newNoteBody').value;
+    noteEl.appendChild(titleEl);
+    noteEl.appendChild(bodyEl);
+
+    noteEl.classList.add('note');
+    notesAnchor.appendChild(noteEl);
+
 })
 
 
-
-function deleteNote(num) {
-    fetch('http://localhost:3000/notes/' + num, {
-        method: 'DELETE'
-    })
-}
