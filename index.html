@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Notes</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  
+  <header>
+    <!-- search bar -->
+    <div id='searchBarDiv'>
+      <textarea label='searchBar' id='searchBarField'>Search
+      </textarea>
+    </div>
+  </header>
+
+  <main>
+    <!-- new note [color] [tags/labels]  -->
+    <div id='newNote'>
+
+      <textarea id='newNoteTitle' name='newNoteTitle'>Title</textarea>
+      <textarea id='newNoteBody' name='newNoteBody' rows='3' cols='40'>Note goes here...</textarea>
+
+    </div>
+
+    <!-- notes list [tiles vs list] -->
+    <div id='allNotesAnchor'>
+
+    </div>
+    <!-- notes options: edit | change color | delete -->
+    <!-- would love a sidebar that displays the labls in a list, where clicking on a label displays only those labels -->
+
+  </main>
+
+
+  <script src="scripts.js"></script>
+
 </body>
+
 </html>
