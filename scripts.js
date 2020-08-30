@@ -14,6 +14,8 @@ window.addEventListener('load', function () {
 
 function displayNotes(data) {
     for (let i = 0; i < data.length; i++) {
+        let noteTime = document.createElement('p');
+        noteTime = new moment();
         let noteEl = document.createElement('div');
         let titleEl = document.createElement('h2');
         let bodyEl = document.createElement('p');
