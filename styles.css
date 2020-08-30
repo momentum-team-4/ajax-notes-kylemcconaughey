@@ -49,10 +49,20 @@ CSS HEX
 
 .note {
     width: 300px;
-    height: 350px;
+    height: auto;
     display: flex;
-    flex-flow: wrap;
+    flex-flow: column;
     padding: 1rem;
     margin: 1rem;
     border-radius: 15px;
+    background-color: #eff7f6ff;
+}
+
+#saveNoteBtn {
+    width: 50%;
+    background-color: aquamarine;
+    margin: auto;
+    border-radius: 10px;
+    padding: 0.25rem;
+    font-size: 1rem;
 }
