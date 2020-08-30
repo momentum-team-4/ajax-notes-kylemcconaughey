@@ -1,6 +1,4 @@
 let newNote = document.querySelector('#newNote');
-let newNoteTitle = document.querySelector('#newNoteTitle');
-let newNoteBody = document.querySelector('#newNoteBody')
 const notesAnchor = document.querySelector('#allNotesAnchor')
 const saveBtn = document.querySelector('#saveNoteBtn');
 
@@ -12,6 +10,7 @@ window.addEventListener('load', function () {
             displayNotes(data)
         })
 })
+
 
 function displayNotes(data) {
     for (let i = 0; i < data.length; i++) {
@@ -28,22 +27,9 @@ function displayNotes(data) {
 }
 
 
-// function postNewNote() {
-
-//     fetch('http://localhost:3000/notes/', {
-//         method: 'POST',
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody })
-//     })
-//         .then(r => r.json())
-//         .then(
-//             // whatever you need to do next
-//         )
-// }
-
-
-
 saveBtn.addEventListener('click', function () {
+    let newNoteTitle = document.querySelector('#newNoteTitle').innerHTML;
+    let newNoteBody = document.querySelector('#newNoteBody').innerHTML;
 
     fetch('http://localhost:3000/notes/', {
         method: 'POST',
