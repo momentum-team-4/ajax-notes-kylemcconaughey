@@ -57,6 +57,12 @@ CSS HEX
     margin: 1rem;
     border-radius: 15px;
     background-color: #eff7f6ff;
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+    color: gray
 }
 
 #saveNoteBtn {
