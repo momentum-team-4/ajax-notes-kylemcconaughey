@@ -61,7 +61,10 @@ function displayNotes(data) {
             })
         })
 
-        deleteBtn.setAttribute('onClick', 'window.location.reload()')
+        deleteBtn.addEventListener('click', function () {
+            window.location.reload()
+        })
+
 
         noteEl.appendChild(buttonsBar);
         noteEl.classList.add('note');
@@ -82,6 +85,12 @@ saveBtn.addEventListener('click', function () {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody, 'time': noteTime })
     })
+        .then(res => res.json())
+        .then(function (data) {
+            console.log(data);
+            window.location.reload()
+
+        })
 })
 
 let newNoteTitle = document.querySelector('#newNoteTitle');
