@@ -26,30 +26,46 @@ function displayNotes(data) {
         noteEl.appendChild(timeEl);
         noteEl.appendChild(bodyEl);
 
-        //make a new div at the bottom of noteEl class='buttons' that lets the edit and delete (and save, when editing) buttons be flex-wrap: wrap, and spaced nicely.
+        let buttonsBar = document.createElement('div');
+        buttonsBar.classList.add('buttonsBar');
 
         let editBtn = document.createElement('button');
         editBtn.classList.add('editBtn');
         editBtn.id = 'editBtn' + data[i].id;
         editBtn.innerText = 'Edit';
-        noteEl.appendChild(editBtn);
+        buttonsBar.appendChild(editBtn);
+
+        editBtn.addEventListener('click', function () {
+            fetch('http://localhost:3000/notes/' + data[i].id, {
+                method: 'PUT'
+            })
+        })
 
         let deleteBtn = document.createElement('button');
         deleteBtn.classList.add('deleteBtn');
         deleteBtn.id = 'deleteBtn' + data[i].id;
         deleteBtn.innerText = 'Delete';
-        noteEl.appendChild(deleteBtn);
+        buttonsBar.appendChild(deleteBtn);
 
         deleteBtn.addEventListener('click', function () {
             fetch('http://localhost:3000/notes/' + data[i].id, {
                 method: 'DELETE'
+
             })
         })
 
+        noteEl.appendChild(buttonsBar);
         noteEl.classList.add('note');
         notesAnchor.appendChild(noteEl);
     }
 }
+
+// function editNote(x) {
+//     fetch('http://localhost:3000/notes/' + x {
+//         method: 'DELETE',
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody, 'time': noteTime })
+//     }
 
 
 saveBtn.addEventListener('click', function () {
