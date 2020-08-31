@@ -45,6 +45,8 @@ function displayNotes(data) {
             })
         })
 
+        editBtn.setAttribute('onClick', 'window.location.reload()')
+
         let deleteBtn = document.createElement('button');
         deleteBtn.classList.add('deleteBtn');
         deleteBtn.id = 'deleteBtn' + data[i].id;
@@ -58,22 +60,13 @@ function displayNotes(data) {
             })
         })
 
+        deleteBtn.setAttribute('onClick', 'window.location.reload()')
+
         noteEl.appendChild(buttonsBar);
         noteEl.classList.add('note');
         notesAnchor.appendChild(noteEl);
     }
 }
-
-// function editNote(idNum) {
-//     let noteTime = moment().calendar();
-
-//     fetch('http://localhost:3000/notes/' + idNum, {
-//         method: 'PUT',
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ "title": window.prompt('Previous Title: ', data[i].title), "body": window.prompt('Previous note: ', data[i].body), 'time': noteTime })
-//     }
-//     )
-// }
 
 
 
@@ -106,6 +99,10 @@ saveBtn.addEventListener('click', function () {
     noteEl.classList.add('note');
     notesAnchor.appendChild(noteEl);
 
+    document.querySelector('#newNoteTitle').value = '';
+    document.querySelector('#newNoteTitle').setAttribute('placeholder', 'Title');
+    document.querySelector('#newNoteBody').value = '';
+    document.querySelector('#newNoteBody').setAttribute('placeholder', 'Note goes here...');
 })
 
 
