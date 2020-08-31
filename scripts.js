@@ -22,6 +22,7 @@ function displayNotes(data) {
         timeEl.innerHTML = data[i].time;
         titleEl.innerHTML = data[i].title;
         bodyEl.innerHTML = data[i].body;
+        bodyEl.classList.add('noteBody');
         noteEl.appendChild(titleEl);
         noteEl.appendChild(timeEl);
         noteEl.appendChild(bodyEl);
@@ -83,4 +84,9 @@ saveBtn.addEventListener('click', function () {
     })
 })
 
+let newNoteTitle = document.querySelector('#newNoteTitle');
 
+newNoteTitle.addEventListener('focus', function () {
+    let newNoteBody = document.querySelector('#newNoteBody');
+    newNoteBody.style.display = 'unset'
+})

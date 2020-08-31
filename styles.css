@@ -3,6 +3,12 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    color: #1d3461ff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #ded9e2ff;
 }
 
 #searchBarField {
@@ -17,21 +23,25 @@
 h1 {
     text-align: center;
     padding: 1rem;
+    font-size: 3rem;
+    color: #1d3461ff;
+    text-shadow: 2.5px 2.5px 5px;
 }
 
 header {
-    background-color: #f2b5d4ff;
-    height: 75px;
+    background-color: #c0b9ddff;
+    background-image: linear-gradient(#c0b9ddff, #ded9e2ff);
+    height: 100px;
     margin: 1rem;
+    margin-bottom: 0;
 }
 /*
-background color options
-CSS HEX
---sky-blue-crayola: #7bdff2ff;
---celeste: #b2f7efff;
---mint-cream: #eff7f6ff;
---piggy-pink: #f7d6e0ff;
---cotton-candy: #f2b5d4ff;
+--alabaster: #f7f4eaff;
+--gainsboro: #ded9e2ff;
+--lavender-blue: #c0b9ddff;
+--little-boy-blue: #80a1d4ff;
+--medium-turquoise: #75c9c8ff;
+--space-cadet: #1d3461ff;
 */
 
 #newNote {
@@ -41,10 +51,12 @@ CSS HEX
     display: flex;
     flex-flow: wrap;
     height: auto;
-    background-color: #b2f7efff;
+    background-color: #80a1d4ff;
     padding: 0.5rem;
     margin: auto;
     border-radius: 15px;
+    box-shadow: 5px 10px 5px;
+    border: outset 0.25rem;
 
 }
 
@@ -53,23 +65,32 @@ CSS HEX
     font-size: 1.5rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0.5rem;
-    background-color: #b2f7efff;
+    background-color: rgba(255, 255, 255, 0.33);
     border-radius: 10px;
+    white-space: wrap;
+    
 }
 
 .note {
-    width: auto;
-    max-width: 20%;
-    min-width: 250px;
-    min-height: 100px;
+    width: 25%;
     height: auto;
     display: flex;
     flex-flow: column;
     padding: 1rem;
     margin: 1rem;
     border-radius: 15px;
-    background-color: #eff7f6ff;
+    background-color: #f7f4eaff;
+    background-image: linear-gradient(#ded9e2ff, #f7f4eaff);
     font-size: 1.5rem;
+    border: outset 0.25rem;
+    box-shadow: 5px 10px 5px;
+}
+
+p {
+    white-space: wrap;
+    padding: 2rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 h3 {
@@ -79,35 +100,43 @@ h3 {
 
 #saveNoteBtn {
     width: 50%;
-    background-color: aquamarine;
+    background-color: #75c9c8ff;
     margin: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 0.25rem;
     font-size: 1rem;
+    border: outset 0.25rem;
 }
 
 #allNotesAnchor {
     display: flex;
     flex-flow: wrap;
-     
 }
 
 .deleteBtn,
 .editBtn {
-    width: 50px;
+    width: 75px;
     height: 50px;
-    background-color: rgba(255, 0, 0, 0.25);
+    background-color: rgba(192, 185, 221, 0.5);
     font-size: 1rem;
     border-radius: 30%;
+    border: outset 0.25rem;
+
 }
 
 .editBtn {
-    background-color: honeydew;
-    margin-right: 50%;
+    margin-right: 35%;
+    background-color: rgba(117, 201, 200, 0.5);
 }
 
 .buttonsBar {
     display: flex;
     flex-flow: nowrap;
     width: 100%;
+    margin-top: auto;
 }
+
+#newNoteBody {
+    display: none;
+}
+
