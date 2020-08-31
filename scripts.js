@@ -36,8 +36,12 @@ function displayNotes(data) {
         buttonsBar.appendChild(editBtn);
 
         editBtn.addEventListener('click', function () {
+            let noteTime = moment().calendar();
+
             fetch('http://localhost:3000/notes/' + data[i].id, {
-                method: 'PUT'
+                method: 'PUT',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ "title": window.prompt('Previous Title: ', data[i].title), "body": window.prompt('Previous note: ', data[i].body), 'time': noteTime })
             })
         })
 
@@ -60,12 +64,17 @@ function displayNotes(data) {
     }
 }
 
-// function editNote(x) {
-//     fetch('http://localhost:3000/notes/' + x {
-//         method: 'DELETE',
+// function editNote(idNum) {
+//     let noteTime = moment().calendar();
+
+//     fetch('http://localhost:3000/notes/' + idNum, {
+//         method: 'PUT',
 //         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody, 'time': noteTime })
+//         body: JSON.stringify({ "title": window.prompt('Previous Title: ', data[i].title), "body": window.prompt('Previous note: ', data[i].body), 'time': noteTime })
 //     }
+//     )
+// }
+
 
 
 saveBtn.addEventListener('click', function () {
