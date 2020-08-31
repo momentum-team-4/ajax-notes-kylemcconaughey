@@ -72,8 +72,6 @@ function displayNotes(data) {
 
 saveBtn.addEventListener('click', function () {
 
-    // event.preventDefault()
-
     let newNoteTitle = document.querySelector('#newNoteTitle').value;
     let newNoteBody = document.querySelector('#newNoteBody').value;
     let noteTime = moment().calendar();
@@ -83,26 +81,6 @@ saveBtn.addEventListener('click', function () {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody, 'time': noteTime })
     })
-
-    let noteEl = document.createElement('div');
-    let titleEl = document.createElement('h2');
-    let bodyEl = document.createElement('p');
-    let timeEl = document.createElement('h3');
-    timeEl.innerHTML = noteTime;
-    timeEl.id = 'timeEl';
-    titleEl.innerHTML = document.querySelector('#newNoteTitle').value;
-    bodyEl.innerHTML = document.querySelector('#newNoteBody').value;
-    noteEl.appendChild(titleEl);
-    noteEl.appendChild(timeEl);
-    noteEl.appendChild(bodyEl);
-
-    noteEl.classList.add('note');
-    notesAnchor.appendChild(noteEl);
-
-    document.querySelector('#newNoteTitle').value = '';
-    document.querySelector('#newNoteTitle').setAttribute('placeholder', 'Title');
-    document.querySelector('#newNoteBody').value = '';
-    document.querySelector('#newNoteBody').setAttribute('placeholder', 'Note goes here...');
 })
 
 
