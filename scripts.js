@@ -26,6 +26,7 @@ function displayNotes(data) {
         noteEl.appendChild(titleEl);
         noteEl.appendChild(timeEl);
         noteEl.appendChild(bodyEl);
+        noteEl.classList.add(data[i].color)
 
         let buttonsBar = document.createElement('div');
         buttonsBar.classList.add('buttonsBar');
@@ -42,7 +43,9 @@ function displayNotes(data) {
             fetch('http://localhost:3000/notes/' + data[i].id, {
                 method: 'PUT',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ "title": window.prompt('Previous Title: ', data[i].title), "body": window.prompt('Previous note: ', data[i].body), 'time': noteTime })
+                body: JSON.stringify({
+                    "title": window.prompt('Previous Title: ', data[i].title), "body": window.prompt('Previous note: ', data[i].body), 'time': noteTime, 'color': data[i].color
+                })
             })
         })
 
@@ -79,11 +82,12 @@ saveBtn.addEventListener('click', function () {
     let newNoteTitle = document.querySelector('#newNoteTitle').value;
     let newNoteBody = document.querySelector('#newNoteBody').value;
     let noteTime = moment().calendar();
+    let noteColor = document.querySelector('#noteColor').value;
 
     fetch('http://localhost:3000/notes/', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody, 'time': noteTime })
+        body: JSON.stringify({ "title": newNoteTitle, "body": newNoteBody, 'time': noteTime, "color": noteColor })
     })
         .then(res => res.json())
         .then(function (data) {
@@ -98,4 +102,10 @@ let newNoteTitle = document.querySelector('#newNoteTitle');
 newNoteTitle.addEventListener('focus', function () {
     let newNoteBody = document.querySelector('#newNoteBody');
     newNoteBody.style.display = 'unset'
+})
+
+let colorSelect = document.querySelector('#noteColor')
+colorSelect.addEventListener('input', function () {
+    this.className = '';
+    colorSelect.classList.add('noteColor' + colorSelect.value)
 })

@@ -23,14 +23,24 @@
 
   <main>
     <!-- new note [color] [tags/labels]  -->
-    <div id='newNote'>
+    <form id='newNote'>
 
-      <textarea id='newNoteTitle' label='newNoteTitle' placeholder="Title"></textarea>
-      <textarea id='newNoteBody' label='newNoteBody' rows='3' cols='40' placeholder="Note goes here..."></textarea>
+      <label for='newNoteTitle' id='newNoteLabel'></label>
+      <input id='newNoteTitle' name='newNoteTitle' required label='newNoteTitle' placeholder="Title"></input>
+      <label for='newNoteBody' name='newNoteBody'></label>
+      <input required id='newNoteBody' name='newNoteBody' label='newNoteBody' rows='3' cols='40'
+        placeholder="Note goes here..."></input>
+
+      <select id='noteColor' class='noteColor'>
+        <option>PEACH</option>
+        <option>GREEN</option>
+        <option>BLUE</option>
+        <option>YELLOW</option>
+      </select>
 
       <button id='saveNoteBtn'>Save</button>
 
-    </div>
+    </form>
 
     <!-- notes list [tiles vs list] -->
     <div id='allNotesAnchor'>
